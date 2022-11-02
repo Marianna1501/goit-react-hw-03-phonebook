@@ -18,14 +18,14 @@ class App extends React.Component {
     filter: '',
   };
 
-  componentDidUpdate(prevStat) {
-    if (this.state.coctacts !== prevStat.coctacts) {
+  componentDidUpdate(prevState) {
+    if (this.state.contacts !== prevState.contacts) {
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     }
   }
 
   componentDidMount() {
-    const contact = localStorage.getItem('contact');
+    const contact = localStorage.getItem('contacts');
     const parsedContact = JSON.parse(contact);
     if (parsedContact) {
       this.setState({ contacts: parsedContact });
